@@ -1,0 +1,56 @@
+using System;
+
+class Guitar
+{
+    // ====== Vlastnosti (Properties) ======
+    private int numberOfStrings;
+    private string name;
+    private string material;
+
+    // ====== Konstruktor ======
+    public Guitar(int numberOfStrings, string name, string material)
+    {
+        this.numberOfStrings = numberOfStrings;
+        this.name = name;
+        this.material = material;
+    }
+
+    // ====== Gettery ======
+    public int GetNumberOfStrings()
+    {
+        return numberOfStrings;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public string GetMaterial()
+    {
+        return material;
+    }
+
+    // ====== Metoda pro výpis informací ======
+    public void PrintInfo()
+    {
+        Console.WriteLine("Informace o kytaře:");
+        Console.WriteLine($"Název: {name}");
+        Console.WriteLine($"Počet strun: {numberOfStrings}");
+        Console.WriteLine($"Materiál: {material}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Vytvoření instance třídy Guitar
+        Guitar mojaKytara = new Guitar(6, "Fender Stratocaster", "Dřevo");
+
+        // Vypsání informací o kytaře
+        mojaKytara.PrintInfo();
+    }
+}
+
+
