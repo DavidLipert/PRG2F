@@ -1,0 +1,45 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // ====== Vytvoření pole o délce 20 ======
+        int[] board = new int[20];
+
+        // ====== Vložení čísel 1, 2 a 3 na náhodné pozice ======
+        Random rnd = new Random();
+
+        board[rnd.Next(0, 20)] = 1; // vloží 1 na náhodné místo
+        board[rnd.Next(0, 20)] = 2; // vloží 2 na jiné (možná stejné) místo
+        board[rnd.Next(0, 20)] = 3; // vloží 3 na jiné (možná stejné) místo
+
+        // ====== Vykreslení hrací plochy ======
+        DrawBoard(board);
+    }
+
+    // ====== Funkce pro vykreslení hrací plochy ======
+    static void DrawBoard(int[] arr)
+    {
+        foreach (int cell in arr)
+        {
+            switch (cell)
+            {
+                case 0:
+                    Console.Write("w ");  // prázdné místo
+                    break;
+                case 1:
+                    Console.Write("⏅ ");  // objekt 1
+                    break;
+                case 2:
+                    Console.Write("𓊝 ");  // objekt 2
+                    break;
+                case 3:
+                    Console.Write("⛴ ");  // objekt 3
+                    break;
+            }
+        }
+
+        Console.WriteLine(); // nový řádek po vykreslení
+    }
+}
