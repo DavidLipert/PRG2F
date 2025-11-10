@@ -1,0 +1,49 @@
+using System;
+
+class Car
+{
+    // ====== Vlastnosti (atributy) ======
+    private string brand; // značka auta
+    private int speed;    // aktuální rychlost
+
+    // ====== Konstruktor ======
+    public Car(string brand)
+    {
+        this.brand = brand;
+        this.speed = 0; // auto stojí na začátku
+    }
+
+    // ====== Metody ======
+    public void Accelerate(int amount)
+    {
+        speed += amount;
+        Console.WriteLine($"{brand} zrychluje o {amount} km/h. Aktuální rychlost: {speed} km/h");
+    }
+
+    public void Brake(int amount)
+    {
+        speed -= amount;
+        if (speed < 0) speed = 0;
+        Console.WriteLine($"{brand} brzdí o {amount} km/h. Aktuální rychlost: {speed} km/h");
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"Auto: {brand}, aktuální rychlost: {speed} km/h");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // ====== Vytvoření objektu ======
+        Car mojeAuto = new Car("Škoda");
+
+        // ====== Použití metod ======
+        mojeAuto.PrintInfo();       // vypíše info o autě
+        mojeAuto.Accelerate(50);    // přidá rychlost
+        mojeAuto.Brake(20);         // ubrzdí část rychlosti
+        mojeAuto.PrintInfo();       // znovu vypíše aktuální stav
+    }
+}
